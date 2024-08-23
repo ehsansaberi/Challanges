@@ -1,0 +1,21 @@
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:     
+
+        iw = m + n - 1
+        ir1 = m -1
+        ir2 = n - 1
+
+        while iw > -1:
+            if ir2 < 0:
+                break
+            elif ir1 < 0:
+                nums1[iw] = nums2[ir2]
+                ir2 -= 1
+            elif nums2[ir2] > nums1[ir1]:
+                nums1[iw] = nums2[ir2]
+                ir2 -= 1
+            else:
+                nums1[iw] = nums1[ir1]
+                ir1 -= 1
+            iw -= 1
+        return nums1
